@@ -24,6 +24,9 @@ public class GyroStuff : MonoBehaviour
     private GameObject _currentRound;
     private int _circlesCollected;
 
+    private Renderer renderer;
+    
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -31,6 +34,10 @@ public class GyroStuff : MonoBehaviour
         Score = 0;
         
         if( Accelerometer.current != null) InputSystem.EnableDevice(Accelerometer.current);
+
+        renderer = GetComponent<Renderer>();
+        
+        GameSettings.ApplyMaterial(renderer.material);
     }
 
     private void FixedUpdate()

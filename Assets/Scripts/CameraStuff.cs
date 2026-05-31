@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Events;
 
 public class CameraStuff : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class CameraStuff : MonoBehaviour
     
     //This is the list of where it is taking the camera
     private WebCamTexture _webCamTexture;
+
+    public UnityEvent photoTaken;
 
     private IEnumerator Start()
     {
@@ -36,27 +39,11 @@ public class CameraStuff : MonoBehaviour
         thumbnailDisplay.texture = photo;
         thumbnailDisplay.gameObject.SetActive(true);
 
-        SaveToGallery(photo);
+        photoTaken?.Invoke();
+        
+        GameSettings.PhotoToMaterial = photo;
     }
-
-    private void SaveToGallery(Texture2D photo)
-    {
-        //Establish the name of the file and the path
-        string filename = $"capture_{System.DateTime.Now:yyyyMMMMdd_HHmmss}.png";
-        string path = System.IO.Path.Combine(Application.persistentDataPath, filename);
-        System.IO.File.WriteAllBytes(path, photo.EncodeToPNG());
-
-#if UNITY_ANDROID
-        //find the path though URI and calls the action to locate it there -> Note, this is based on java, but it is not Java itself, it is only for unity. 
-        using var player = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        using var activity = player.GetStatic<AndroidJavaObject>("currentActivity");
-        using var intent = new AndroidJavaObject("android.content.Intent", "android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-        using var uri = new AndroidJavaClass("android.net.Uri").CallStatic<AndroidJavaObject>("parse", "file://" + path);
-        intent.Call<AndroidJavaObject>("setData", uri);
-        activity.Call("sendBroadcast", intent);
-#endif //TEST THIS STUFF DUDE, CMON
-
-    }
+    
 
     //Ask for permission for the camera
     private IEnumerator RequestCameraPermission()
@@ -68,7 +55,6 @@ public class CameraStuff : MonoBehaviour
             Debug.LogWarning("WebCam is not authorized");
             yield break;
         }
-
         InitializeCamera();
     }
     
@@ -106,12 +92,11 @@ public class CameraStuff : MonoBehaviour
     private IEnumerator AdjustDisplayAfterFrame()
     {
         yield return null;
-        
-        //cameraDisplay.rectTransform.localEulerAngles = new Vector3(0, 0, -_webCamTexture.videoRotationAngle);
 
         if (useFrontCamera)
         {
             cameraDisplay.rectTransform.localScale = new Vector3(-1, 1, 1);
         }
     }
+    
 }
