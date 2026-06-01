@@ -17,14 +17,17 @@
 - Photo to mesh component
 
 ## How to test it:
-Clone the Repository
-Open the scene called "Main Scene"
-Use an ANDROID phone to test it better, or if not an android emulator. 
+1. Clone the Repository
+
+2. Open the scene called "Main Scene"
+
+3. Use an ANDROID phone to test it better, or if not an android emulator. 
+
 Remember that this one should have the next conditions
-It has to be on development mode
-It has to be able to depurate though USB
-It has to have the Unity Remote 5 App
-It has to have access to the camera
+- It has to be on development mode
+- It has to be able to depurate though USB
+- It has to have the Unity Remote 5 App
+- It has to have access to the camera
 
 ### Indirect link:
 https://github.com/pg29JulianDSilva/App_exploration_feature_A1
