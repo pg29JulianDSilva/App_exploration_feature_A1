@@ -23,11 +23,16 @@
 
 3. Use an ANDROID phone to test it better, or if not an android emulator. 
 
-Remember that this one should have the next conditions
+### Remember that this one should have the next conditions
 - It has to be on development mode
 - It has to be able to depurate though USB
 - It has to have the Unity Remote 5 App
 - It has to have access to the camera
+
+### In unity remember to have all the conditions to test it correctly
+- To have a build profile for android
+- To have android studio if you need the emulator
+- To have the projecto to detect all android devices
 
 ### Indirect link:
 https://github.com/pg29JulianDSilva/App_exploration_feature_A1
