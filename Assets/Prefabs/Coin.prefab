@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a28feb1eba4d208fe75669012e05ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  secondsAdded: 1
+  secondsAdded: 5
+  scoreTimer: 1

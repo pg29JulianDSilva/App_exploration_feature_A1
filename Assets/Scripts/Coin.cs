@@ -6,13 +6,11 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SphereCollider))]
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private float secondsAdded = 1f;
-    [SerializeField] private float scoreTimmer = 1f; 
+    [SerializeField] private float secondsAdded = 5f;
+    [SerializeField] private float scoreTimer = 1f; 
 
     private int score = 30;
     private float time;
-    
-    private Renderer mateirRenderer;
 
     private void Start()
     {
@@ -21,7 +19,7 @@ public class Coin : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= scoreTimmer + time)
+        if (Time.time >= scoreTimer + time)
         {
             score--;
             time = Time.time;

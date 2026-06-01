@@ -344,7 +344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 54.1, y: -81.6}
+  m_AnchoredPosition: {x: 71, y: -69.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &692693409
@@ -369,8 +369,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1286,6 +1286,7 @@ GameObject:
   - component: {fileID: 1899144598}
   - component: {fileID: 1899144597}
   - component: {fileID: 1899144601}
+  - component: {fileID: 1899144602}
   m_Layer: 0
   m_Name: floor&spanwer
   m_TagString: Untagged
@@ -1379,13 +1380,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899144596}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: -1.776, y: -1.2432, z: -1.776}
-  m_LocalScale: {x: 2.8925254, y: 0.24435, z: 5.9468746}
+  m_LocalScale: {x: 5.946875, y: 0.24435, z: 2.892525}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784025705}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &1899144601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,6 +1401,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoinSpawner
   coinPrefab: {fileID: 6333189907612649382, guid: fa9c197f03b5e5e4bbdb0f05a98b0c1f, type: 3}
   spawnRate: 5
+--- !u!114 &1899144602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899144596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94adf161ab7f494bbe4d9a18cbc81bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageTextureComponent
 --- !u!1 &1928568652
 GameObject:
   m_ObjectHideFlags: 0

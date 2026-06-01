@@ -8,6 +8,8 @@ public static class GameSettings
     
     public static float InGameTime = 60f;
     
+    public static bool IsGameOver = false;
+    
     public static void ApplyMaterial(Material mat)
     {
         if (!PhotoToMaterial || !mat) return;
