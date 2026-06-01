@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,13 +25,11 @@ public class CoinSpawner : MonoBehaviour
         
         if (Time.time >= currentTime + spawnRate)
         {
-            spawnHeight = Random.Range((transform.localScale.x / 2) * -1,transform.localScale.x / 2);
-            spawnWidth = Random.Range((transform.localScale.z / 2) * -1,transform.localScale.z / 2);
+            spawnHeight = Random.Range(((transform.localScale.x - coinPrefab.transform.localScale.x) / 2) * -1, (transform.localScale.x - coinPrefab.transform.localScale.x) / 2);
+            spawnWidth = Random.Range(((transform.localScale.z - coinPrefab.transform.localScale.z) / 2) * -1, (transform.localScale.z - coinPrefab.transform.localScale.z) / 2);
             
             Instantiate(coinPrefab, new Vector3(transform.position.x + spawnWidth, transform.position.y + (transform.localScale.y / 2), transform.position.z + spawnHeight), Quaternion.identity);
             currentTime = Time.time;
-            
-            Debug.Log(transform.localScale);
             
         }
     }
