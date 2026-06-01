@@ -12,27 +12,23 @@ public class GyroStuff : MonoBehaviour
     [SerializeField] private bool invertX;
     [SerializeField] private bool invertY;
     
-    [Header("In Game Info")]
-    [SerializeField] private float scoreRadius = 1f;
-    [SerializeField] private int rounds = 5;
-    
     [Header("Timmer")]
     [SerializeField] private float gameTime = 60f;
     
     public static int Score { get; private set; }
     
-    private Rigidbody _rb;
-    private Vector3 _spawnPosition;
-    private Vector3 _smoothedAccel;
-    private GameObject _currentRound;
-    private int _circlesCollected;
+    private Rigidbody rb;
+    private Vector3 spawnPosition;
+    private Vector3 smoothedAccel;
+    private GameObject currentRound;
+    private int circlesCollected;
 
     private Renderer renderer;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody>();
-        _spawnPosition = transform.position;
+        rb = GetComponent<Rigidbody>();
+        spawnPosition = transform.position;
         Score = 0;
         
         if( Accelerometer.current != null) InputSystem.EnableDevice(Accelerometer.current);
@@ -53,11 +49,11 @@ public class GyroStuff : MonoBehaviour
         if (Accelerometer.current == null) return;
         
         Vector3 raw = Accelerometer.current.acceleration.ReadValue();
-        _smoothedAccel = Vector3.Lerp(_smoothedAccel, raw, smoothing);
+        smoothedAccel = Vector3.Lerp(smoothedAccel, raw, smoothing);
         
-        float x = invertX ? _smoothedAccel.x : -_smoothedAccel.x;
-        float z = invertY ? _smoothedAccel.y : -_smoothedAccel.y;
+        float x = invertX ? smoothedAccel.x : -smoothedAccel.x;
+        float z = invertY ? smoothedAccel.y : -smoothedAccel.y;
         
-        _rb.AddForce(new Vector3(x, 0, z) * tiltForce, ForceMode.Acceleration);
+        rb.AddForce(new Vector3(x, 0, z) * tiltForce, ForceMode.Acceleration);
     }
 }

@@ -2150,7 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c17e0c9fba4b31b1c51ef6b85e16fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  sceneName: Camera
+  sceneName: CameraScene
 --- !u!114 &1677929622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c17e0c9fba4b31b1c51ef6b85e16fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  sceneName: Camera
+  sceneName: CameraScene
 --- !u!114 &2094116839
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(SphereCollider))]
 public class Coin : MonoBehaviour
 {
+    [Header("Pick Up Values")]
     [SerializeField] private float secondsAdded = 5f;
     [SerializeField] private float scoreTimer = 1f; 
 

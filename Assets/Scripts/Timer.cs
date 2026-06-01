@@ -3,9 +3,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Timmer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    [SerializeField] private Image timmerImage;
+    [Header("image for the timer")]
+    [SerializeField] private Image timerImage;
     
     private float startTime = 60f;
     
@@ -18,13 +19,13 @@ public class Timmer : MonoBehaviour
 
     private void Update()
     {
-        timmerImage.fillAmount = GameSettings.InGameTime / startTime;
+        timerImage.fillAmount = GameSettings.InGameTime / startTime;
         if (GameSettings.InGameTime <= 0f)
         {
             GameSettings.IsGameOver = true;
             TimeUp?.Invoke();
         }
-
+        
         if (GameSettings.LocalPlayerScore > 400)
         {
             GameSettings.InGameTime -= (Time.deltaTime * 4);

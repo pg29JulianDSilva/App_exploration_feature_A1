@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 public class MainMenuDisplay : MonoBehaviour
 {
+    [Header("Different Menu's Groups")]
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject instructionScreen;
     
-
     private void OnEnable()
     {
         if (GameSettings.IsGameOver)

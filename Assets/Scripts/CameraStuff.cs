@@ -41,6 +41,7 @@ public class CameraStuff : MonoBehaviour
 
         photoTaken?.Invoke();
         
+        //Instead of saving it in the gallery, this one add it's to the persistent data
         GameSettings.PhotoToMaterial = photo;
     }
     
@@ -79,8 +80,7 @@ public class CameraStuff : MonoBehaviour
             }
         }
         
-        cameraName ??= devices[0].name; // we use the ??= to avoid null references
-        //Syntaxis (name, width, Height, requested FPS)
+        cameraName ??= devices[0].name;
         _webCamTexture = new WebCamTexture(cameraName, 1920, 1080, 30);
         
         cameraDisplay.texture = _webCamTexture;

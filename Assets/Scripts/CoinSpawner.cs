@@ -4,10 +4,11 @@ using Random = UnityEngine.Random;
 
 public class CoinSpawner : MonoBehaviour
 {
+    [Header("Spawn Data")]
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private float spawnRate = 5;
+    
     private float currentTime;
-
     private float spawnWidth;
     private float spawnHeight;
 

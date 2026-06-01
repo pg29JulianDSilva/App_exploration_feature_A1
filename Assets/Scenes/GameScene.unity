@@ -485,8 +485,6 @@ MonoBehaviour:
   smoothing: 0.15
   invertX: 1
   invertY: 1
-  scoreRadius: 1
-  rounds: 5
   gameTime: 60
 --- !u!54 &765466586
 Rigidbody:
@@ -1244,7 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b494c7edf64baa986bb63237158b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timmer
-  timmerImage: {fileID: 873321664}
+  timerImage: {fileID: 873321664}
   TimeUp:
     m_PersistentCalls:
       m_Calls:
