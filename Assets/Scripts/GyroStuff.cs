@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class GyroStuff : MonoBehaviour
 {
     [Header("Tilt elements")]
-    [SerializeField] private float tiltForce = 20f;
+    [SerializeField] private float tiltForce = 10f;
     [SerializeField] private float maxSpeed = 12f;
     [SerializeField] private float smoothing = 0.15f;
     
@@ -16,6 +16,9 @@ public class GyroStuff : MonoBehaviour
     [SerializeField] private float scoreRadius = 1f;
     [SerializeField] private int rounds = 5;
     
+    [Header("Timmer")]
+    [SerializeField] private float gameTime = 60f;
+    
     public static int Score { get; private set; }
     
     private Rigidbody _rb;
@@ -25,7 +28,6 @@ public class GyroStuff : MonoBehaviour
     private int _circlesCollected;
 
     private Renderer renderer;
-    
 
     private void Start()
     {
@@ -38,6 +40,7 @@ public class GyroStuff : MonoBehaviour
         renderer = GetComponent<Renderer>();
         
         GameSettings.ApplyMaterial(renderer.material);
+        GameSettings.RestartGame(gameTime);
     }
 
     private void FixedUpdate()
